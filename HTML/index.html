@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Web Development is cool." />
+        <meta name="keywords" content="HTML, CSS, JavaScript" />
+        <meta name="author" content="ketsueki" />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="refresh" content="30" />
+
+        <title>HTML & CSS</title>
+    </head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 200vh;
+        }
+
+        section,
+        h3 {
+            margin: 20px 0px;
+        }
+
+        header {
+            background-color: rgb(190, 255, 255);
+            border-radius: 30px;
+            margin: 20px;
+            padding: 0px 30px;
+            position: sticky;
+            z-index: 20;
+            top: 20px;
+            border: 4px cyan dotted;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        strong {
+            padding: 5px 0px;
+        }
+
+        li {
+            display: inline-block;
+
+            a {
+                text-decoration: none;
+                color: rgb(56, 54, 54);
+                padding: 5px 30px;
+                display: block;
+                transition: background-color 0.3s ease-in;
+
+                &:hover {
+                    background-color: cyan;
+                }
+            }
+        }
+
+        .grid-container {
+            margin-top: 20px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            grid-template-rows: 1.2fr;
+            grid-auto-rows: 1fr;
+            width: 80%;
+            gap: 20px;
+            background-color: rgba(0, 255, 255, 0.25);
+            justify-items: end;
+
+            article {
+                /* max-width: 400px; */
+                padding: 10px;
+                border: cyan 4px solid;
+                border-radius: 20px;
+                background-color: white;
+                transition: border-color 0.5s ease-in-out;
+
+                &:hover {
+                    border-color: red;
+                }
+            }
+
+            .art-1 {
+                grid-row: span 2;
+            }
+
+            .art-2 {
+                position: relative;
+                left: 100px;
+                top: 100px;
+            }
+
+            .art-3 {
+                grid-column: span 2;
+            }
+        }
+
+        .table-form {
+            table {
+                border-collapse: collapse;
+                margin: 0px 20px;
+
+                tr,
+                th,
+                td {
+                    border: 1px solid black;
+                    padding: 8px;
+                }
+            }
+        }
+
+        .flex-form {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            gap: 10px;
+            max-width: 400px;
+
+            .field-1 {
+                width: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .field-2 {
+                width: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+            }
+            .field-3 {
+                width: 80%;
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: space-around;
+            }
+        }
+
+        .animation-playground {
+            margin: 20px;
+            height: 600px;
+            width: 600px;
+            background-color: wheat;
+
+            .move-around {
+                position: relative;
+                background-color: red;
+                width: 80px;
+                height: 80px;
+                animation: moveInSquare 8s infinite;
+            }
+
+            .absolute {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                width: fit-content;
+                font-size: small;
+                color: white;
+                background-color: black;
+            }
+        }
+
+        @keyframes moveInSquare {
+            0% {
+                top: 0;
+                left: 0;
+            }
+            25% {
+                top: 0;
+                left: calc(100% - 80px);
+            }
+            50% {
+                top: calc(100% - 80px);
+                left: calc(100% - 80px);
+            }
+            75% {
+                top: calc(100% - 80px);
+                left: 0;
+            }
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
+    <body>
+        <header>
+            <strong>LOGO</strong>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <h3>Grid, Article tag, Relative Position Example</h3>
+            <div class="grid-container">
+                <article class="art-1">
+                    <h4>1. Introduction to HTML</h4>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni a
+                        dolores labore architecto. Accusamus dolores earum, laboriosam
+                        voluptas iste temporibus ea reiciendis, quam commodi beatae ipsam
+                        neque voluptate et possimus! Quam rerum quisquam alias repellat
+                        soluta sed pariatur nihil iusto illo assumenda sit architecto
+                        aspernatur aperiam ipsa enim adipisci eum suscipit accusantium.
+                    </p>
+                </article>
+
+                <article class="art-2">
+                    <h4>
+                        2. Top 10 Web Design Trends of 2023
+                        <em style="color: red">(RELATIVE EXAMPLE)</em>
+                    </h4>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni a
+                        dolores labore architecto. Accusamus dolores earum, laboriosam
+                        voluptas iste temporibus ea reiciendis, quam commodi beatae ipsam
+                        neque voluptate et possimus! Quam rerum quisquam alias repellat
+                        soluta sed pariatur nihil iusto illo assumenda sit architecto
+                        aspernatur aperiam ipsa enim adipisci eum suscipit accusantium.
+                    </p>
+                </article>
+                <article class="art-3">
+                    <h4>3. 3 CSS Tricks you must know</h4>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni a
+                        dolores labore architecto. Accusamus dolores earum, laboriosam
+                        voluptas iste temporibus ea reiciendis, quam commodi beatae ipsam
+                        neque voluptate et possimus! Quam rerum quisquam alias repellat
+                        soluta sed pariatur nihil iusto illo assumenda sit architecto
+                        aspernatur aperiam ipsa enim adipisci eum suscipit accusantium.
+                    </p>
+                </article>
+                <article class="art-4">
+                    <h4>4. TypeScript vs JavaScript</h4>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni a
+                        dolores labore architecto. Accusamus dolores earum, laboriosam
+                        voluptas iste temporibus ea reiciendis, quam commodi beatae ipsam
+                        neque voluptate et possimus! Quam rerum quisquam alias repellat
+                        soluta sed pariatur nihil iusto illo assumenda sit architecto
+                        aspernatur aperiam ipsa enim adipisci eum suscipit accusantium.
+                    </p>
+                </article>
+                <article class="art-5">
+                    <h4>5. Top Gadgets</h4>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni a
+                        dolores labore architecto. Accusamus dolores earum, laboriosam
+                        voluptas iste temporibus ea reiciendis, quam commodi beatae ipsam
+                        neque voluptate et possimus! Quam rerum quisquam alias repellat
+                        soluta sed pariatur nihil iusto illo assumenda sit architecto
+                        aspernatur aperiam ipsa enim adipisci eum suscipit accusantium.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h3>Table + Form Example</h3>
+            <form class="table-form">
+                <table>
+                    <thead>
+                        <th>Label</th>
+                        <th>Input Field</th>
+                    </thead>
+                    <tr>
+                        <td><label for="username">Username:</label></td>
+                        <td>
+                            <input type="text" id="username" name="username" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="experience">Experience Level:</label></td>
+                        <td>
+                            <input
+                                type="range"
+                                id="experience"
+                                name="experience"
+                                min="1"
+                                max="10"
+                            />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+        <section>
+            <h3>Flex Box + Form Example</h3>
+            <form class="flex-form">
+                <div class="field-1">
+                    <label for="subscribe">Subscribe:</label>
+                    <input type="checkbox" id="subscribe" name="subscribe" />
+                </div>
+
+                <div class="field-2">
+                    <label for="favColor">Favorite Color:</label>
+                    <input type="color" id="favColor" name="favColor" value="#0000ff" />
+                </div>
+
+                <div class="field-3">
+                    <label for="plan">Choose Plan:</label>
+                    <select id="plan" name="plan">
+                        <option value="basic">Basic</option>
+                        <option value="premium">Premium</option>
+                        <option value="pro">Pro</option>
+                    </select>
+                </div>
+            </form>
+        </section>
+        <section>
+            <h3>Animation, Absolute position example</h3>
+            <div class="animation-playground">
+                <div class="move-around">
+                    <div class="absolute">ABS <br />OL<br />UTE</div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
