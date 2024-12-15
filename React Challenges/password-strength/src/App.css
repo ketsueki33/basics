@@ -1,0 +1,42 @@
+.container {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.req-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: gray;
+
+    p[data-valid="true"] {
+        color: greenyellow;
+    }
+}
+
+.strong-container {
+    height: 15px;
+    width: 100%;
+    outline: gray 1px solid;
+    overflow: hidden;
+    border-radius: 20px;
+
+    .strong {
+        height: 100%;
+    }
+
+    .strong[data-strength="weak"] {
+        width: 33%;
+        background-color: red;
+    }
+    .strong[data-strength="medium"] {
+        width: 66%;
+        background-color: yellow;
+    }
+    .strong[data-strength="strong"] {
+        width: 100%;
+        background-color: green;
+    }
+}

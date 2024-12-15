@@ -1,0 +1,62 @@
+:root {
+    background-color: rgb(57, 58, 58);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+
+.counter-container {
+    background-color: #eaf1ff;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.counter-screen {
+    border-radius: 15px;
+    width: 340px;
+    height: 420px;
+    font-size: 60px;
+    margin: 0;
+    display: grid;
+    place-content: center;
+    background: linear-gradient(45deg, #ffe080, #d1ff6f);
+
+    @media (width < 768px) {
+        background: linear-gradient(45deg, #09ee09, #9b43ff);
+    }
+}
+
+.controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 15px;
+    display: grid;
+    place-content: center;
+    border: none;
+    font-size: 60px;
+    width: 70px;
+    height: 90px;
+    background-color: #ffe37d;
+    transition: all ease-in 300ms;
+
+    &:hover:not(:disabled) {
+        background-color: #d1ff6f;
+        scale: 1.1;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: gray;
+    }
+}

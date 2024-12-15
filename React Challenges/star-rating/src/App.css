@@ -1,0 +1,13 @@
+.container {
+    margin-top: 200px;
+}
+
+span {
+    cursor: pointer;
+    color: gray;
+}
+
+span[data-state="active"] {
+    color: yellow;
+}
+
