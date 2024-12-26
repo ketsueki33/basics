@@ -1,0 +1,52 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.card {
+    background-color: rgb(175, 243, 15);
+    display: grid;
+    place-content: center;
+    height: 200px;
+    width: 200px;
+    color: black;
+    font-weight: 800;
+    border-radius: 20px;
+    font-size: 60px;
+
+    &[data-found="true"] {
+        background-color: green;
+    }
+
+    &[data-error="true"] {
+        background-color: rgb(202, 10, 10);
+    }
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+button {
+    --color: aqua;
+    border: var(--color) 2px solid;
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    color: var(--color);
+    background-color: transparent;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        --color: yellow;
+    }
+}
