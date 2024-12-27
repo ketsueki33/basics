@@ -1,5 +1,7 @@
+import { LucideIcon } from "lucide-react";
+
 interface GameCardProps {
-    num: number;
+    num: LucideIcon;
     show: boolean;
     addToSelect: (index: number) => void;
     index: number;
@@ -15,6 +17,7 @@ export default function GameCard({
     found,
     error,
 }: GameCardProps) {
+    const Icon = num;
     return (
         <div
             data-found={found}
@@ -24,7 +27,7 @@ export default function GameCard({
             }}
             className="card"
         >
-            {show && <p>{num}</p>}
+            {show && <Icon size={80} className="card-icon"/>}
         </div>
     );
 }

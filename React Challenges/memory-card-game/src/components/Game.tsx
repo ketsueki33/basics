@@ -1,8 +1,20 @@
-import { useState, useRef, useEffect } from "react";
+import { Bird, Bone, Carrot, Fish, Leaf, LucideIcon, Snail } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import GameCard from "./GameCard";
 
+function shuffleAndDouble(): LucideIcon[] {
+    const icons: LucideIcon[] = [Bone, Snail, Fish, Bird, Leaf, Carrot];
+
+    const doubled = [...icons, ...icons];
+    for (let i = doubled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [doubled[i], doubled[j]] = [doubled[j], doubled[i]];
+    }
+    return doubled;
+}
+
 export default function Game() {
-    const arr: number[] = [1, 2, 1, 2];
+    const [arr, setArr] = useState(shuffleAndDouble);
     const [selected, setSelected] = useState<number[]>([]);
     const [found, setFound] = useState<number[]>([]);
     const [error, setError] = useState<number[]>([]);
@@ -14,10 +26,10 @@ export default function Game() {
     };
 
     useEffect(() => {
-        if (found.length === 4) {
+        if (found.length === arr.length) {
             setOver(true);
         }
-    }, [found.length]);
+    }, [found.length, arr.length]);
 
     useEffect(() => {
         if (over) return;
@@ -27,11 +39,11 @@ export default function Game() {
                 setFound((prev) => [...prev, selected[0], selected[1]]);
                 setSelected([]);
             } else {
-                setError([...selected]);
+                setError(selected);
                 ref.current = setTimeout(() => {
                     setSelected([]);
                     setError([]);
-                }, 2000);
+                }, 1200);
             }
         }
 
@@ -65,6 +77,7 @@ export default function Game() {
                         setFound([]);
                         setSelected([]);
                         setOver(false);
+                        setArr(shuffleAndDouble)
                     }}
                 >
                     Restart

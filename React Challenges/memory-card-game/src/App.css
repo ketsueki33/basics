@@ -15,7 +15,8 @@
     color: black;
     font-weight: 800;
     border-radius: 20px;
-    font-size: 60px;
+    font-size: 75px;
+    
 
     &[data-found="true"] {
         background-color: green;
