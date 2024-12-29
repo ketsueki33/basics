@@ -1,9 +1,20 @@
-import { Bird, Bone, Carrot, Fish, Leaf, LucideIcon, Snail } from "lucide-react";
+import {
+    Anchor,
+    Bird,
+    Bone,
+    Carrot,
+    Fish,
+    Leaf,
+    LucideIcon,
+    Snail,
+    Umbrella,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import GameCard from "./GameCard";
+import Timer from "./Timer";
 
 function shuffleAndDouble(): LucideIcon[] {
-    const icons: LucideIcon[] = [Bone, Snail, Fish, Bird, Leaf, Carrot];
+    const icons: LucideIcon[] = [Bone, Snail, Fish, Bird, Leaf, Carrot, Anchor, Umbrella];
 
     const doubled = [...icons, ...icons];
     for (let i = doubled.length - 1; i > 0; i--) {
@@ -21,13 +32,23 @@ export default function Game() {
     const ref = useRef<number | null>(null);
     const [over, setOver] = useState<boolean>(false);
 
+    const [isTimerActive, setIsTimerActive] = useState(false);
+
     const addToSelect = (index: number): void => {
+        if (!isTimerActive) setIsTimerActive(true);
+
+        if (error.length > 0) return;
         setSelected((prev) => [...prev, index]);
+    };
+
+    const clearError = () => {
+        setTimeout(() => setError([]), 500);
     };
 
     useEffect(() => {
         if (found.length === arr.length) {
             setOver(true);
+            setIsTimerActive(false);
         }
     }, [found.length, arr.length]);
 
@@ -42,22 +63,21 @@ export default function Game() {
                 setError(selected);
                 ref.current = setTimeout(() => {
                     setSelected([]);
-                    setError([]);
+                    clearError();
                 }, 1200);
             }
-        }
-
-        if (selected.length === 3) {
-            if (ref.current) {
-                clearTimeout(ref.current);
-                setError([]);
-            }
-            setSelected([selected[2]]);
         }
     }, [selected, over, arr]);
 
     return (
         <>
+            <h2>
+                {!isTimerActive && !over ? (
+                    "Start clicking to make pairs"
+                ) : (
+                    <Timer isTimerActive={isTimerActive} />
+                )}
+            </h2>
             <div className="container">
                 {arr.map((ele, i) => (
                     <GameCard
@@ -77,7 +97,7 @@ export default function Game() {
                         setFound([]);
                         setSelected([]);
                         setOver(false);
-                        setArr(shuffleAndDouble)
+                        setArr(shuffleAndDouble);
                     }}
                 >
                     Restart

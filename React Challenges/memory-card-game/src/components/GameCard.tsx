@@ -20,14 +20,18 @@ export default function GameCard({
     const Icon = num;
     return (
         <div
-            data-found={found}
-            data-error={error}
+            data-show={show}
             onClick={() => {
                 if (!show) addToSelect(index);
             }}
             className="card"
         >
-            {show && <Icon size={80} className="card-icon"/>}
+            <div className="card-content">
+                <div className="front"></div>
+                <div className="back" data-found={found} data-error={error}>
+                     <Icon size={70} className="card-icon" />
+                </div>
+            </div>
         </div>
     );
 }
